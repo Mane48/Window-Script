@@ -13,13 +13,13 @@ Known issues:
 
 Commands :
 -
-  -/wind all ( Rolls down all windows ) - Only driver can use this
-  -/wind front ( Rolls down both front windows ) - Only driver can use this
-  -/wind back ( Rolls down both back windows ) - Only driver can use this
-  -/wind fl ( Rolls down front left )
-  -/wind fr ( Rolls down front right )
-  -/wind bl ( Rolls down back left )
-  -/wind br ( Rolls down back right )
+ - /wind all ( Rolls down all windows ) - Only driver can use this
+ - /wind front ( Rolls down both front windows ) - Only driver can use this
+ - /wind back ( Rolls down both back windows ) - Only driver can use this
+ - /wind fl ( Rolls down front left )
+ - /wind fr ( Rolls down front right )
+ - /wind bl ( Rolls down back left )
+ - /wind br ( Rolls down back right )
   
 To roll down your window as a passenger you will have to roll down your specific window. If I’m sitting on the copilot seat I will have to do /wind fr as in front right.
 
