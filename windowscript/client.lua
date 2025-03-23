@@ -7,7 +7,7 @@ print("Script Made By : Terry L")
 -- Back Right : 3
 
 ------------------------------FUNCTIONS---------------------------------------
-function ShowAboveRadarMessage(message)
+local function showAboveRadarMessage(message)
     SetNotificationTextEntry("STRING")
     AddTextComponentString(message)
     DrawNotification(0,1)
@@ -15,13 +15,18 @@ end
 
 RegisterNetEvent('showNotify')
 AddEventHandler('showNotify', function(notify)
-    ShowAboveRadarMessage(notify)
+    showAboveRadarMessage(notify)
 end)
 
-------------------------------------------------------------------------------
-
-
-
+------------------------------------------------------------------------------ Micro Optimisation
+local GetPedInVehicleSeat = GetPedInVehicleSeat
+local GetPlayerPed = GetPlayerPed
+local GetPlayerFromServerId = GetPlayerFromServerId
+local IsPedInAnyVehicle = IsPedInAnyVehicle
+local RollDownWindow = RollDownWindow
+local RollUpWindow = RollUpWindow
+local GetVehiclePedIsIn = GetVehiclePedIsIn
+local GetPlayerName = GetPlayerName
 ------------------------------------------------------------------------------
 local window0 = true
 local window1 = true
@@ -32,11 +37,9 @@ Citizen.CreateThread(function()
     TriggerEvent('chat:addSuggestion', '/wind', 'All, front, back, fr, fl, br, bl')
 end)
 
-
-
 -- Window Down
 RegisterNetEvent("CarWindowS")
-AddEventHandler("CarWindowS", function(sender, window)
+AddEventHandler("CarWindowS", function(sender,window)
     local playerPed = GetPlayerPed(GetPlayerFromServerId(sender))
     if IsPedInAnyVehicle(playerPed, false) then
         local playerCar = GetVehiclePedIsIn(playerPed, false)
@@ -144,3 +147,11 @@ AddEventHandler("SeatDAWA", function(sender)
     TriggerEvent('showNotify', "~r~Please select a window", GetPlayerName(source))
 end)
 
+RegisterCommand('rollfl',function() TriggerServerEvent('windowscript:sync','fl') end)
+RegisterCommand('rollfr',function() TriggerServerEvent('windowscript:sync','fr') end)
+RegisterCommand('rollrl',function() TriggerServerEvent('windowscript:sync','rl') end)
+RegisterCommand('rollrr',function() TriggerServerEvent('windowscript:sync','rr') end)
+RegisterKeyMapping('rollfl','Window Front Left','KEYBOARD','-')
+RegisterKeyMapping('rollfr','Window Front Right','KEYBOARD','-')
+RegisterKeyMapping('rollrl','Window Rear Left','KEYBOARD','-')
+RegisterKeyMapping('rollrr','Window Rear Right','KEYBOARD','-')
